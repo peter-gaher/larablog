@@ -1,0 +1,69 @@
+<?php $__env->startSection('title', $title); ?>
+
+<?php $__env->startSection('content'); ?>
+
+	<section class="box">
+	<?php echo Form::model($user, ['route' => [ 'user.update', $user->id ], 'method' => 'put', 'class' => 'post', 'id' => 'edit-form']); ?>
+
+
+		<header class="post-header">
+			<h1 class="box-heading"><?php echo e($title); ?></h1>
+		</header>
+
+		<div class="form-group">
+			<?php echo Form::email('email', null, [
+				'class' => 'form-control form-group',
+				'placeholder' => 'email@address.com',
+				'required' => true,
+				'autofocus' => true,
+				'disabled' => true,
+			]); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::text('name', null, [
+				'class' => 'form-control',
+				'placeholder' => 'name',
+				'required' => true,
+				'autofocus' => true,
+			]); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::password('password', [
+				'class' => 'form-control',
+				'placeholder' => 'password',
+			]); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::password('password_confirmation', [
+				'class' => 'form-control',
+				'placeholder' => 'password, again',
+			]); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::select('role_id', ['1' => 'admin', '2' => 'writer'], $user->role_id, ['class' => 'form-control']); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::button($title, ['type' => 'submit', 'class' => 'btn btn-primary']); ?>
+
+			<span class="or">
+				or <?php echo link_back(); ?>
+
+			</span>
+		</div>
+
+	<?php echo Form::close(); ?>
+
+	</section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

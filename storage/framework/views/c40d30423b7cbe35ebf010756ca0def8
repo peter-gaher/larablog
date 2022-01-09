@@ -1,0 +1,24 @@
+<?php $__env->startSection('title', 'User list'); ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <section class="box post-list">
+        <h1 class="box-heading text-muted">User list</h1>
+
+        <ul class="user-list">
+            <?php $__empty_1 = true; foreach($users as $user): $__empty_1 = false; ?>
+                <li>
+                    <?php echo e($user->email); ?>
+
+                    <a href="<?php echo e(route('user.edit', $user->id)); ?>" class="btn btn-xs edit-link">edit</a>
+                    <a href="<?php echo e(route('user.delete', $user->id)); ?>" class="btn btn-xs edit-link">&times;</a>
+                </li>
+            <?php endforeach; if ($__empty_1): ?>
+                <li>Nemáme užívateľov!</li>
+            <?php endif; ?>
+        </ul>
+        <a href="<?php echo e(route('user.create')); ?>" class="btn btn-primary">Add new user</a>
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

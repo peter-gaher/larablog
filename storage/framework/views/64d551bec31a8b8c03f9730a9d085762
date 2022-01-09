@@ -1,0 +1,23 @@
+<?php $__env->startSection('title', 'User list'); ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <section class="box post-list">
+        <h1 class="box-heading text-muted">Tag list</h1>
+
+        <ul class="user-list">
+            <?php $__empty_1 = true; foreach($tags as $tag): $__empty_1 = false; ?>
+                <li>
+                    <?php echo e($tag->tag); ?>
+
+                    <a href="<?php echo e(route('tag.delete', $tag->id)); ?>" class="btn btn-xs edit-link">&times;</a>
+                </li>
+            <?php endforeach; if ($__empty_1): ?>
+                <li>Nemáme tagy!</li>
+            <?php endif; ?>
+        </ul>
+        <a href="<?php echo e(route('tag.create')); ?>" class="btn btn-primary">Add new tag</a>
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

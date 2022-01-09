@@ -1,0 +1,48 @@
+<?php $__env->startSection('title', isset($title) ? $title : 'All post'); ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <section class="box post-list">
+        <h1 class="box-heading text-muted">
+            <?php echo e(isset($title) ? $title : 'Blog'); ?>
+
+        </h1>
+
+        <?php $__empty_1 = true; foreach($posts as $post): $__empty_1 = false; ?>
+            <article id="post-<?php echo e($post->id); ?>" class="post">
+                <header class="post-header">
+                    <h2>
+                        <a href="<?php echo e(route('post.show', $post->slug)); ?>">
+                            <?php echo e($post->title); ?>
+
+                        </a>
+                        <time datetime="<?php echo e($post->datetime); ?>">
+                            <small>/ <?php echo e($post->created_at); ?></small>
+                        </time>
+                    </h2>
+                    <?php echo $__env->make('partials.tags', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                </header>
+                <div class="post-content">
+                    <p>
+                        <?php echo e($post->teaser); ?>
+
+                    </p>
+                </div>
+                <footer class="post-footer">
+                    <a href="<?php echo e(route('post.show', $post->slug)); ?>" class="read-more">
+                        read more
+                    </a>
+                    <p class="written-by small">
+                        <small>- written by
+                            <a href="<?php echo e(url('user', $post->user_id)); ?>"><?php echo e($post->user->email); ?></a>
+                        </small>
+                    </p>
+                </footer>
+            </article>
+        <?php endforeach; if ($__empty_1): ?>
+            <p>Nemáme príspevky!</p>
+        <?php endif; ?>
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,49 @@
+
+    <header class="post-header">
+        <h1 class="box-heading"><?php echo e($title); ?></h1>
+    </header>
+
+    <?php /* Title Field */ ?>
+    <div class="form-group">
+        <?php echo Form::text('title', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Write title'
+        ]); ?>
+
+    </div>
+
+    <?php /* Text Field */ ?>
+    <div class="form-group">
+        <?php echo Form::textarea('text', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Write some text',
+            'rows' => 16
+        ]); ?>
+
+    </div>
+
+    <?php /* Tags Field */ ?>
+    <div class="form-group">
+        <?php foreach($tags as $tag): ?>
+            <label class="checkbox">
+                <?php echo Form::checkbox('tags[]', $tag->id); ?>
+
+                <?php echo e($tag->tag); ?>
+
+            </label>
+        <?php endforeach; ?>
+    </div>
+
+    <?php /* Add post Button */ ?>
+    <div class="form-group">
+        <?php echo Form::button($title, [
+            'type' => 'submit',
+            'class' => 'btn btn-primary'
+        ]); ?>
+
+
+        <span class="or">
+            or <?php echo link_back(); ?>
+
+        </span>
+    </div>

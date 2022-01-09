@@ -1,0 +1,9 @@
+<?php if($post->tags): ?>
+    <p class="tags">
+        <?php foreach($post->tags as $tag): ?>
+            <a href="<?php echo e(url('tag', $tag->id)); ?>" class="btn btn-warning btn-xs">
+                <small><?php echo e($tag->tag); ?></small>
+            </a>
+        <?php endforeach; ?>
+    </p>
+<?php endif; ?>

@@ -1,0 +1,5 @@
+<h1>Ahoj, <?php echo e($name); ?></h1>
+<p>
+    Na Tvojom Laravel Blog konte (http://localhost:8000/auth/login) bolo zmenené heslo. Tvoje nové heslo je: <?php echo e($password_visible); ?>
+
+</p>

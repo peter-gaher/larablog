@@ -1,0 +1,15 @@
+<?php $__env->startSection('title', $title); ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <section class="box">
+        <?php echo Form::open(['route' => 'post.store', 'method' => 'post', 'class' => 'post', 'id' => 'add-form']); ?>
+
+            <?php echo $__env->make('partials.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo Form::close(); ?>
+
+
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

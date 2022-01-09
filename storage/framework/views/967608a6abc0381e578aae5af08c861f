@@ -1,0 +1,11 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="box post-list">
+        <h1 class="box-heading text-muted">Toto je blog</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie lorem lorem, at posuere dolor commodo sit amet. Sed commodo tincidunt maximus. Aliquam placerat et leo in tristique. Sed vel eros ut lorem euismod lobortis sed sed tellus. Nulla at sodales risus. Aliquam scelerisque elementum purus, et euismod magna. Quisque eu diam porttitor, auctor dui a, aliquam risus. Proin eleifend in mi eu interdum. Mauris mollis varius est, a interdum nisi varius sed.
+        </p>
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

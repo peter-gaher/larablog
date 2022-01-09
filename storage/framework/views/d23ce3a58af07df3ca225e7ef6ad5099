@@ -1,0 +1,11 @@
+<?php $__env->startSection('title', '403'); ?>
+
+<?php $__env->startSection('content'); ?>
+
+    <section class="box">
+        <h1>403 - Forbidden</h1>
+        <p><?php echo e($exception->getMessage()); ?></p>
+    </section>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

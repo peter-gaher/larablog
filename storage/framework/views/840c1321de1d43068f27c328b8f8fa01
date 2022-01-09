@@ -1,0 +1,22 @@
+<nav class="navigation">
+    <div class="btn-group btn-group-sm pull-left">
+        <a href="<?php echo e(url('/')); ?>" class="btn btn-default">all posts</a>
+        <?php if(Auth::check()): ?>
+            <a href="<?php echo e(url('user/'. Auth::id())); ?>" class="btn btn-default">my posts</a>
+            <a href="<?php echo e(url('post/create')); ?>" class="btn btn-default">add new post</a>
+        <?php endif; ?>
+        <?php if (app('Illuminate\Contracts\Auth\Access\Gate')->check('is-admin')): ?>
+            <a href="<?php echo e(url('admin/user_list')); ?>" class="btn btn-default">user list</a>
+            <a href="<?php echo e(url('admin/tag_list')); ?>" class="btn btn-default">tag list</a>
+        <?php endif; ?>
+    </div>
+    <div class="btn-group btn-group-sm pull-right">
+        <?php if(Auth::check()): ?>
+            <span class="username small"><?php echo e(Auth::user()->email); ?></span>
+            <a href="<?php echo e(route('logout')); ?>" class="btn btn-default logout">logout</a>
+        <?php else: ?>
+            <a href="<?php echo e(route('login')); ?>" class="btn btn-default logout">login</a>
+            <a href="<?php echo e(route('register')); ?>" class="btn btn-default logout">register</a>
+        <?php endif; ?>
+    </div>
+</nav>
